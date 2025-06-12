@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
   <head>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;1,400&family=Dancing+Script&display=swap"
+      rel="stylesheet"
+    />
+
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Feliz Dia dos Namorados 💙</title>
@@ -62,14 +67,167 @@
           font-size: 1rem;
         }
       }
+
+      .carta {
+        background-color: #fdf6e3;
+        padding: 2rem;
+        border-radius: 12px;
+        margin-top: 3rem;
+        max-width: 800px;
+        font-family: "Dancing Script", "Crimson Pro", serif;
+        font-size: 1.15rem;
+        font-weight: 500;
+        line-height: 2;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+        color: #4b3e2e;
+      }
+
+      .carta h2 {
+        font-family: "Dancing Script", cursive;
+        font-size: 3rem;
+        margin-bottom: 1.5rem;
+        color: #5a3b1d;
+        text-align: center;
+      }
+
+      .carta p {
+        text-align: justify;
+        white-space: pre-line;
+        font-weight: 400;
+        font-style: italic;
+      }
+      .contador-infinito {
+        background-color: #e0f7fa;
+        padding: 2rem;
+        border-radius: 12px;
+        margin-top: 2rem;
+        max-width: 800px;
+        font-family: "Crimson Pro", serif;
+        font-size: 1.2rem;
+        line-height: 1.6;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        color: #004d40;
+      }
+
+      .contador-infinito h2 {
+        font-family: "Dancing Script", cursive;
+        font-size: 2.2rem;
+        margin-bottom: 1rem;
+        color: #00695c;
+      }
+
+      .text-right {
+        text-align: right;
+        font-style: italic;
+        color: #5a3b1d;
+        float: right;
+      }
+      .hearts-container {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        overflow: hidden;
+        z-index: 100;
+      }
+
+      .heart {
+        position: absolute;
+        bottom: -30px;
+        font-size: 24px;
+        animation: subir 6s linear infinite;
+        opacity: 0.7;
+      }
+
+      /* Gera posições aleatórias e delays pra cada coração */
+      .heart:nth-child(1) {
+        left: 10%;
+        animation-delay: 0s;
+      }
+      .heart:nth-child(2) {
+        left: 25%;
+        animation-delay: 2s;
+      }
+      .heart:nth-child(3) {
+        left: 40%;
+        animation-delay: 4s;
+      }
+      .heart:nth-child(4) {
+        left: 60%;
+        animation-delay: 1s;
+      }
+      .heart:nth-child(5) {
+        left: 75%;
+        animation-delay: 3s;
+      }
+      .heart:nth-child(6) {
+        left: 90%;
+        animation-delay: 5s;
+      }
+
+      @keyframes subir {
+        0% {
+          transform: translateY(0) scale(1);
+          opacity: 0.8;
+        }
+        50% {
+          transform: translateY(-50vh) scale(1.2);
+          opacity: 1;
+        }
+        100% {
+          transform: translateY(-100vh) scale(0.8);
+          opacity: 0;
+        }
+      }
     </style>
   </head>
+  <div class="hearts-container">
+    <!-- Vários corações para a animação contínua -->
+    <div class="heart">❤️</div>
+    <div class="heart">💙</div>
+    <div class="heart">💚</div>
+    <div class="heart">💖</div>
+    <div class="heart">💘</div>
+    <div class="heart">💞</div>
+  </div>
+
   <body>
     <h1>Feliz Dia dos Namorados, meu amor 💙</h1>
     <p>Essa página é só um pedacinho do quanto você é especial pra mim.</p>
 
     <h2><span class="heart">❤️</span> Estamos juntos há:</h2>
     <div class="contador" id="contador">Carregando...</div>
+    <div class="contador-infinito">
+      <h2>Ficaremos juntos por mais:</h2>
+      <p id="contadorInfinito">
+        0 anos, 0 meses, 0 dias, 0 horas, 0 minutos, 0 segundos ♾️
+      </p>
+    </div>
+
+    <section class="carta">
+      <h2>💌 Minha Ursinha,</h2>
+      <p>
+        Eu queria deixar nessa cartinha — um tanto diferente — uma mensagem pra
+        você.<br />
+        Quero te dizer que, mesmo com tudo estando bem difícil pra gente, você é
+        meu porto seguro. É pra onde eu quero voltar após um dia longo. <br />
+        Eu amo você, Ursinha. Amo você quando você está toda açucarada, repleta
+        de mel e doçura no olhar. Eu amo você quando você hiberna — ainda mais
+        quando a caverna é meu peito. Eu amo você quando está brava e perigosa,
+        quando temo pela minha vida (kkj). Amo todas as sua fases, mesmo quando
+        deixo não parecer. <br />
+        Eu tenho muito orgulho de você, do nosso relacionamento, do que a gente
+        se torna a cada dia.
+        <br />
+        Nesse momento em que tudo tá bem difícil, só lembra que eu tô com você,
+        ok? Tô aqui pra te emprestar um cadiquinho da minha força.
+        <br />
+        Te amo <strong>infinito e pra sempre</strong>, ok?
+      </p>
+      <p class="text-right">Um beijo do seu peixo</p>
+    </section>
 
     <script>
       const inicio = new Date("2023-06-20T23:20:00-03:00");
@@ -99,6 +257,34 @@
 
       atualizarContador();
       setInterval(atualizarContador, 1000); // atualiza a cada segundo
+    </script>
+    <script>
+      let segundosFuturos = 0;
+      const velocidade = 1000; // segundos fictícios por segundo real
+      const intervalo = 50; // intervalo em milissegundos
+      const incremento = (velocidade * intervalo) / 1000; // quanto adicionar a cada ciclo
+
+      function atualizarContadorInfinito() {
+        segundosFuturos += incremento;
+
+        const totalSegundos = Math.floor(segundosFuturos);
+
+        const anos = Math.floor(totalSegundos / (365 * 24 * 60 * 60));
+        const meses = Math.floor(
+          (totalSegundos % (365 * 24 * 60 * 60)) / (30 * 24 * 60 * 60)
+        );
+        const dias = Math.floor(
+          (totalSegundos % (30 * 24 * 60 * 60)) / (24 * 60 * 60)
+        );
+        const horas = Math.floor((totalSegundos % (24 * 60 * 60)) / (60 * 60));
+        const minutos = Math.floor((totalSegundos % (60 * 60)) / 60);
+        const segundos = totalSegundos % 60;
+
+        const texto = `${anos} anos, ${meses} meses, ${dias} dias, ${horas} horas, ${minutos} minutos, ${segundos} segundos ♾️`;
+        document.getElementById("contadorInfinito").innerText = texto;
+      }
+
+      setInterval(atualizarContadorInfinito, intervalo);
     </script>
   </body>
 </html>
