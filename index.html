@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Feliz Dia dos Namorados 💙</title>
+    <style>
+      :root {
+        --azul-claro: #cce6ff;
+        --azul: #3399ff;
+        --azul-escuro: #003366;
+        --verde: #66cc99;
+        --vermelho: #cc6666;
+      }
+
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: "Segoe UI", sans-serif;
+        background: linear-gradient(135deg, var(--azul-claro), var(--azul));
+        color: var(--azul-escuro);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        text-align: center;
+        padding: 2rem;
+      }
+
+      h1 {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+      }
+
+      h2 {
+        font-size: 1.5rem;
+        margin-top: 1rem;
+        color: var(--verde);
+      }
+
+      .contador {
+        margin-top: 2rem;
+        font-size: 1.25rem;
+        background-color: rgba(255, 255, 255, 0.3);
+        padding: 1rem 2rem;
+        border-radius: 1rem;
+        backdrop-filter: blur(5px);
+      }
+
+      .heart {
+        color: var(--vermelho);
+        font-size: 2rem;
+      }
+
+      @media (max-width: 600px) {
+        h1 {
+          font-size: 2rem;
+        }
+
+        .contador {
+          font-size: 1rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Feliz Dia dos Namorados, meu amor 💙</h1>
+    <p>Essa página é só um pedacinho do quanto você é especial pra mim.</p>
+
+    <h2><span class="heart">❤️</span> Estamos juntos há:</h2>
+    <div class="contador" id="contador">Carregando...</div>
+
+    <script>
+      const inicio = new Date("2023-06-20T23:20:00-03:00");
+
+      function atualizarContador() {
+        const agora = new Date();
+        const diff = agora - inicio;
+
+        const segundos = Math.floor(diff / 1000);
+        const minutos = Math.floor(segundos / 60);
+        const horas = Math.floor(minutos / 60);
+        const dias = Math.floor(horas / 24);
+        const anos = Math.floor(dias / 365);
+        const meses = Math.floor((dias % 365) / 30);
+        const diasRestantes = dias - (anos * 365 + meses * 30);
+
+        const texto = `${anos} ano(s), ${meses} mês(es) e ${diasRestantes} dia(s) 💞`;
+
+        document.getElementById("contador").innerText = texto;
+      }
+
+      atualizarContador();
+      setInterval(atualizarContador, 60 * 1000);
+    </script>
+  </body>
+</html>
