@@ -86,7 +86,7 @@
         const meses = Math.floor((dias % 365) / 30);
         const diasRestantes = dias - (anos * 365 + meses * 30);
 
-        const texto = `${anos} ano(s), ${meses} mês(es) e ${diasRestantes} dia(s) 💞`;
+        const texto = `${anos} ano, ${meses} meses, ${diasRestantes} dias, ${minutos} minutos e ${segundos} segundos 💞`;
 
         document.getElementById("contador").innerText = texto;
       }
